@@ -1,3 +1,7 @@
+// 🚨 Redirect first-time users to setup.html if no widgets saved
+if (!localStorage.getItem('zeroscroll-widgets')) {
+  window.location.replace("setup.html");
+}
 // 🛑 Redirect if widgets haven't been selected
 if (!localStorage.getItem('zeroscroll-widgets')) {
   window.location.href = "setup.html";

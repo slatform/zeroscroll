@@ -61,6 +61,27 @@ body {
   display: none;
 }
 
+#back-to-setup {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1001;
+  font-size: 1rem;
+  background: var(--tile-bg);
+  color: var(--accent-color);
+  padding: 6px 14px;
+  border: 1px solid var(--tile-border);
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+#back-to-setup:hover {
+  background: var(--accent-color);
+  color: var(--bg-color);
+}
+
 .dashboard {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
