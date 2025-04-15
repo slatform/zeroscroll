@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ZeroScroll Setup</title>
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: 'Helvetica Neue', sans-serif;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #aaa;
+      margin-bottom: 30px;
+    }
+
+    .widget-picker {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 15px;
+      max-width: 600px;
+      margin: auto;
+      text-align: left;
+    }
+
+    label {
+      background: #222;
+      padding: 12px 15px;
+      border-radius: 12px;
+      border: 1px solid #333;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+    }
+
+    label:hover {
+      background: #333;
+      border-color: #4ecdc4;
+    }
+
+    button {
+      margin-top: 40px;
+      padding: 12px 30px;
+      font-size: 1rem;
+      background: #4ecdc4;
+      color: #000;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to ZeroScroll 👋</h1>
+  <p>Select what you want on your dashboard:</p>
+
+  <div class="widget-picker">
+    <label><input type="checkbox" value="weather" checked> Weather</label>
+    <label><input type="checkbox" value="news" checked> News</label>
+    <label><input type="checkbox" value="quote" checked> Quote</label>
+    <label><input type="checkbox" value="todo" checked> To-Do</label>
+    <label><input type="checkbox" value="music"> Now Playing</label>
+    <label><input type="checkbox" value="notes"> Notes</label>
+    <label><input type="checkbox" value="crypto"> Crypto</label>
+    <label><input type="checkbox" value="calendar"> Calendar</label>
+    <label><input type="checkbox" value="affirmation"> Affirmation</label>
+    <label><input type="checkbox" value="finances"> Finances</label>
+    <label><input type="checkbox" value="shopping"> Shopping</label>
+    <label><input type="checkbox" value="meals"> Meals</label>
+    <label><input type="checkbox" value="email"> Email</label>
+    <label><input type="checkbox" value="custom"> Custom</label>
+  </div>
+
+  <button id="buildBtn">Build My Dashboard</button>
+
+  <script>
+    document.getElementById('buildBtn').addEventListener('click', () => {
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+      const selected = Array.from(checkboxes).map(cb => cb.value);
+
+      if (selected.length === 0) {
+        alert("Please select at least one widget.");
+        return;
+      }
+
+      // Save to localStorage
+      localStorage.setItem('zeroscroll-widgets', JSON.stringify(selected));
+
+      // Redirect to dashboard
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
