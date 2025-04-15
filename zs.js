@@ -1,3 +1,7 @@
+// 🛑 Redirect if widgets haven't been selected
+if (!localStorage.getItem('zeroscroll-widgets')) {
+  window.location.href = "setup.html";
+}
 // ---- 1. GET SELECTED WIDGETS ----
 const defaultWidgets = ["weather", "news", "quote", "todo"];
 const savedWidgets = JSON.parse(localStorage.getItem("zeroscroll-widgets")) || defaultWidgets;

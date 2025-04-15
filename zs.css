@@ -34,6 +34,7 @@ body {
   transition: background 0.3s ease, color 0.3s ease;
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
+  overscroll-behavior: none;
 }
 
 #theme-toggle,
@@ -163,6 +164,23 @@ body {
   transform: none !important;
   border-radius: 0;
   overflow-y: auto;
+  padding: 20px;
+  background: var(--tile-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.tile.expanded h2 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+.tile.expanded div {
+  width: 100%;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 body.expanding .tile:not(.expanded) {
